@@ -7,6 +7,8 @@ use Test::Memory::Cycle;
 
 BEGIN {
     plan skip_all => 'Leak tests fail under Devel::Cover' if $INC{'Devel/Cover.pm'};
+    plan skip_all => 'Test::Memory::Cycle segfaults in these tests under blead'
+        if $] >= 5.021;
 }
 
 use Moose ();
